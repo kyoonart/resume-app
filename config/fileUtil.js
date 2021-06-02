@@ -2,7 +2,7 @@
 
 const path = require('path')
 const fs = require('fs')
-// 打包html
+    // 打包html
 const htmlWebpackPlugin = require('html-webpack-plugin');
 /**
  * 递归获取指定目录中的所有文件路径
