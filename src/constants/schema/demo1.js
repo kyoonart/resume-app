@@ -1,7 +1,7 @@
 export default {
   name: "张三",
   position: "Web前端工程师",
-  avatar: "https://img.cdn.sugarat.top/mdImg/MTYxMzMwNTIyNzkyNA==613305227924",
+  avatar: "https://z3.ax1x.com/2021/06/19/RPRXad.png",
   left: [
     {
       title: "基本资料",
@@ -81,7 +81,7 @@ export default {
       title: "实习经历",
       introduce: [
         {
-          ordinary: [["美团", "Web前端工程师", "2019.12 – 2020.3"]],
+          ordinary: [["快手", "Web前端工程师", "2019.12 – 2020.3"]],
           dot: [
             "参与XX项目的研发，解决了xx难题",
             "开发了xx插件/工具，解决了xx问题，提升了xx效率",

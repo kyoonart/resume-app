@@ -86,7 +86,7 @@ export default {
         {
           des: {
             time: "2019.12 – 2020.3",
-            tips: ["美团", "Web前端工程师"],
+            tips: ["快手", "Web前端工程师"],
           },
           introduce: [
             "参与XX项目的研发，解决了xx难题",
