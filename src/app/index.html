@@ -1,88 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/print.css" media="print">
-    <link rel="stylesheet" href="https://img.cdn.sugarat.top/css/jsoneditor.min.css">
-    <script src="https://img.cdn.sugarat.top/js/jsoneditor.min.js"></script>
-    <script src="https://img.cdn.sugarat.top/jspdf/2.3.0/jspdf.umd.min.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/print.css" media="print" />
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/jsoneditor/9.5.0/jsoneditor.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jsoneditor/9.5.0/jsoneditor.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
     <title>
-        <%= htmlWebpackPlugin.options.title %>
+      <%= htmlWebpackPlugin.options.title %>
     </title>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <button id="open-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <div id="tips">
-            ← Resume 在线简历生成
-        </div>
-        <nav id="nav">
-            <%= htmlWebpackPlugin.options.pageNames %>
-        </nav>
+      <button id="open-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div id="tips">
+        ← Resume 在线简历生成
+      </div>
+      <nav id="nav">
+        <%= htmlWebpackPlugin.options.pageNames %>
+      </nav>
     </header>
     <div class="main">
-        <iframe id="page" name="page" src="" frameborder="0"></iframe>
-        <div class="right">
-            <div class="input-area">
-                <textarea id="domContext" placeholder="这里显示点击的内容，修改内容会直接同步" rows="3"></textarea>
-                <div class="tools">
-                    <div class="left">
-                        <button data-type="after">后移</button>
-                        <button data-type="before">前移</button>
-                        <button data-type="copy-child">拷贝</button>
-                        <button data-type="delete">删除</button>
-                        <button data-type="clear">清空</button>
-                    </div>
-                    <div>
-                        <button class="success" data-type="back">回退</button>
-                        <button class="success" data-type="copy">复制内容</button>
-                        <button class="success" data-type="cancel">取消</button>
-                    </div>
-                </div>
-                <div class="tips" style="background-color: #fff;">
-                    <div style="text-align: center;">
-                        <p>这里显示点击内容对应的最小json对象</p>
-                    </div>
-                </div>
-                <div id="clickEditor" style="background-color: #fff;">
-
-                </div>
+      <iframe id="page" name="page" src="" frameborder="0"></iframe>
+      <div class="right">
+        <div class="input-area">
+          <textarea
+            id="domContext"
+            placeholder="这里显示点击的内容，修改内容会直接同步"
+            rows="3"
+          ></textarea>
+          <div class="tools">
+            <div class="left">
+              <button data-type="after">后移</button>
+              <button data-type="before">前移</button>
+              <button data-type="copy-child">拷贝</button>
+              <button data-type="delete">删除</button>
+              <button data-type="clear">清空</button>
             </div>
-            <div class="tips">
-                <div style="text-align: center;">
-                    <p>输入框显示点击的内容，修改内容会直接同步</p>
-                    <p>也可以直接在下方的json编辑器中进行直接修改</p>
-                    <p>推荐电脑访问,手机导出的pdf样式可能有缺陷</p>
-                </div>
+            <div>
+              <button class="success" data-type="back">回退</button>
+              <button class="success" data-type="copy">复制内容</button>
+              <button class="success" data-type="cancel">取消</button>
             </div>
-            <div class="btns">
-                <button id="print">导出pdf（电脑）</button>
-                <button id="pdf">导出pdf（手机）</button>
+          </div>
+          <div class="tips" style="background-color: #fff;">
+            <div style="text-align: center;">
+              <p>这里显示点击内容对应的最小json对象</p>
             </div>
-            <div class="btns">
-                <button id="reset">重置</button>
-                <button>
-                    <label for="focus">自动聚焦输入<input checked id="focus" name="focus" type="checkbox"></label>
-                </button>
-                <button id="toggle">切换为代码模式</button>
-            </div>
-            <div class="btns json-btns">
-                <button data-type="download">下载JSON</button>
-                <button data-type="copy">复制JSON</button>
-            </div>
-            <div id="jsonEditor">
-
-            </div>
+          </div>
+          <div id="clickEditor" style="background-color: #fff;"></div>
         </div>
+        <div class="tips">
+          <div style="text-align: center;">
+            <p>输入框显示点击的内容，修改内容会直接同步</p>
+            <p>也可以直接在下方的json编辑器中进行直接修改</p>
+            <p>推荐电脑访问,手机导出的pdf样式可能有缺陷</p>
+          </div>
+        </div>
+        <div class="btns">
+          <button id="print">导出pdf（电脑）</button>
+          <button id="pdf">导出pdf（手机）</button>
+        </div>
+        <div class="btns">
+          <button id="reset">重置</button>
+          <button>
+            <label for="focus"
+              >自动聚焦输入<input
+                checked
+                id="focus"
+                name="focus"
+                type="checkbox"
+            /></label>
+          </button>
+          <button id="toggle">切换为代码模式</button>
+        </div>
+        <div class="btns json-btns">
+          <button data-type="download">下载JSON</button>
+          <button data-type="copy">复制JSON</button>
+        </div>
+        <div id="jsonEditor"></div>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>
