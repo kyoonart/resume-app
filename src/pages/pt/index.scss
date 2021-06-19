@@ -1,0 +1,121 @@
+@import "./../../assets/css/base.scss";
+html,
+body,
+#resume {
+  height: 100%;
+  overflow: hidden;
+  font-size: 14px;
+}
+$themeColor: #2d5394;
+#resume {
+  padding: 1rem 2rem;
+  overflow: hidden;
+}
+header {
+  overflow: hidden;
+  padding-top: 1.5rem;
+}
+.base__info {
+  list-style: none;
+  &-person {
+    position: relative;
+    h1 {
+      color: $themeColor;
+      display: inline-block;
+      &:nth-child(2) {
+        margin-left: 7rem;
+      }
+    }
+    &-link {
+      color: $themeColor;
+    }
+  }
+}
+.line {
+  color: $themeColor;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 0.3rem 0;
+  overflow: hidden;
+  &-base {
+    height: 0.15rem;
+    background-color: $themeColor;
+  }
+  &-hr {
+    border-width: 0;
+    border-bottom: 2px solid $themeColor;
+    position: relative;
+    overflow: initial;
+    margin-top: 0.3rem;
+    &::before {
+      content: "";
+      position: absolute;
+      transform: translateY(60%);
+      left: 0;
+      bottom: 0;
+      display: block;
+      background-color: $themeColor;
+    }
+  }
+}
+.skills {
+  list-style: none;
+  li {
+    display: inline-block;
+    margin: 0.1rem 0;
+    width: 50%;
+  }
+}
+
+.icon {
+  width: 1rem;
+  height: 1rem;
+  transform: rotate(90deg);
+  vertical-align: -0.1rem;
+  margin-right: 0.15rem;
+}
+.p-icon {
+  transform: rotate(0);
+}
+.practice {
+  &__header {
+    position: relative;
+    &-base {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  &__main,
+  li {
+    margin-top: 0.5rem;
+  }
+  a {
+    color: $themeColor;
+  }
+}
+.avatar {
+  width: 115px;
+  height: 140px;
+  position: absolute;
+  right: 0;
+  top: -20px;
+  img {
+    width: 100%;
+  }
+  &-none {
+    opacity: 0;
+    display: inline-block;
+    width: 55px;
+    height: 20px;
+    overflow: hidden;
+    &::before {
+      content: "";
+      position: absolute;
+      top: -20px;
+      left: -0px;
+      bottom: -20px;
+      right: -0px;
+    }
+  }
+}

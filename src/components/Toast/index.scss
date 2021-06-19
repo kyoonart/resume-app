@@ -1,0 +1,30 @@
+.toast {
+  position: fixed;
+  text-align: center;
+  box-sizing: border-box;
+  left: 0;
+  width: 100%;
+  top: 10%;
+  z-index: 999;
+  span {
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+  }
+  &-success span {
+    background-color: #f0f9eb;
+    color: #67c23a;
+  }
+  &-error span {
+    background-color: #fef0f0;
+    color: #f56c6c;
+  }
+  &-warn span {
+    background-color: #fdf6ec;
+    color: #e6a23c;
+  }
+  &-info span {
+    background-color: #ecf5ff;
+    color: #409eff;
+  }
+}

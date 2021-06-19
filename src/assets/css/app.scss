@@ -1,0 +1,228 @@
+@import './base.scss';
+
+#page {
+  display: block;
+  width: $width;
+  min-height: $height;
+  border: 1px dashed #ddd;
+}
+.main {
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem;
+  .right {
+    margin: 0 1rem;
+    .tips {
+      padding: 0.5rem 0;
+      color: #409eff;
+      font-size: 0.8rem;
+    }
+  }
+  #jsonEditor {
+    width: calc(100vw - 900px);
+    margin: 0 auto;
+    position: sticky;
+    top: 9rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    padding: 0;
+    .right {
+      position: absolute;
+    }
+    #jsonEditor {
+      width: auto;
+    }
+  }
+}
+
+.btns {
+  text-align: center;
+  button {
+    color: #409eff;
+    background: #ecf5ff;
+    border: 1px solid #b3d8ff;
+    margin: 0.5rem;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    outline: none;
+    &:hover {
+      cursor: pointer;
+      transition: all 0.5s;
+      color: #fff;
+      background-color: #409eff;
+      border-color: #409eff;
+    }
+  }
+}
+
+header {
+  text-align: center;
+  background-color: #24292e;
+  padding: 16px;
+  margin-bottom: 10px;
+  position: relative;
+  #tips {
+    display: none;
+  }
+  #open-menu {
+    display: none;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    span {
+      display: block;
+      border-bottom: 2px solid #fff;
+      margin-bottom: 5px;
+    }
+  }
+  nav {
+    display: block;
+    a {
+      color: #fff;
+      font-weight: bold;
+      margin: 0 10px;
+    }
+    span {
+      height: 1;
+      border-left: 2px solid #fff;
+    }
+    a.active {
+      color: #24292e;
+      background-color: #fff;
+      font-size: 0.8rem;
+      padding: 0.2rem;
+      border-radius: 0.2rem;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  header {
+    #open-menu {
+      display: block;
+      float: left;
+    }
+    #tips {
+      display: block;
+      color: #fff;
+      text-align: center;
+    }
+    nav {
+      display: none;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      z-index: 1;
+      background-color: #24292e;
+      span {
+        width: 80%;
+        display: block;
+        border: 0;
+        margin: 0 auto;
+        border-bottom: 2px solid #fff;
+      }
+      a {
+        display: block;
+        margin: 0.5rem auto;
+      }
+    }
+  }
+}
+.right {
+  position: relative;
+  .input-area {
+    position: sticky;
+    top: 0rem;
+    z-index: 1;
+  }
+}
+
+#domContext {
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 0.5rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  resize: none;
+  &:focus {
+    box-shadow: 0 0 20px yellow;
+    border: none;
+  }
+  & ~ div.tools {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+div.tools button {
+  border: none;
+  outline: none;
+  color: #fff;
+  background-color: #409eff;
+  border-color: #409eff;
+  display: inline-block;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  -webkit-appearance: none;
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  margin: 0;
+  transition: 0.1s;
+  font-weight: 500;
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  &.disabled {
+    color: #fff;
+    background-color: #a0cfff;
+    border-color: #a0cfff;
+    cursor: not-allowed;
+  }
+  &.success {
+    color: #fff;
+    background-color: #67c23a;
+    border-color: #67c23a;
+  }
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  #domContext {
+    padding: 0.2rem;
+    &.focus {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3rem;
+      padding: 0.1rem 0.5rem;
+      resize: vertical;
+      & ~ div.tools {
+        position: fixed;
+        top: 4rem;
+        left: 0;
+        right: 0;
+        button {
+          display: block;
+          margin-top: 0.5rem;
+          font-size: 0.5rem;
+          padding: 0.3rem 0.5rem;
+        }
+      }
+    }
+  }
+}
