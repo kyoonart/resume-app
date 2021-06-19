@@ -50,6 +50,7 @@ npm run build
 - vue
 - react
 - jQuery
+- angular
 - ...更多
 
 转到详细[贡献指南](./contribution.md)
