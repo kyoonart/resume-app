@@ -32,22 +32,14 @@ export default function initNav(defaultPage = getActivePageKey() || "pt") {
 
   // 加入自定义的链接
   links.push(createEmptySpan());
-  links.push(createLink("Github", "https://github.com/pengtaoa/resume", true));
+  links.push(
+    createLink("Github", "https://github.com/pengtaoa/resume-app", true)
+  );
   links.push(
     createLink("贡献模板", "https://github.com/pengtaoa/resume-app", true)
   );
   links.push(
-    createLink(
-      "如何书写一份好的互联网校招简历",
-      "https://juejin.cn/post/6928390537946857479",
-      true
-    )
-  );
-  links.push(
-    createLink("实现原理", "https://juejin.cn/post/6934595007370231822", true)
-  );
-  links.push(
-    createLink("建议/反馈", "https://www.wenjuan.com/s/MBryA3gI/", true)
+    createLink("建议/反馈", "https://www.wenjuan.com/s/UZBZJvF7rt/", true)
   );
 
   // 渲染到页面中
