@@ -2,14 +2,14 @@
 
 name: prod-CI
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ main ]
+    branches: [master]
   pull_request:
-    types: [ assigned ]
-    branches: [ main ]
+    types: [assigned]
+    branches: [master]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -28,7 +28,7 @@ jobs:
       # 配置rsa密钥自动登陆
       - uses: webfactory/ssh-agent@v0.4.1
         with:
-            ssh-private-key: ${{ secrets.ACCESS_TOKEN }}
+          ssh-private-key: ${{ secrets.ACCESS_TOKEN }}
       - name: Setup knownhosts
         run: ssh-keyscan ${{ secrets.REMOTE_ORIGIN }} >> ~/.ssh/known_hosts
 
