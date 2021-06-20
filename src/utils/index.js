@@ -129,7 +129,7 @@ export function getPathnameKey(pathname) {
 }
 
 export function TransferAllImgToBase64(dom) {
-  return new Promise((res) => {
+  return new Promise(res => {
     if (!dom) {
       res();
       return;
@@ -173,9 +173,9 @@ export function Dom2PDF(dom, filename) {
     window
       .html2canvas(dom, {
         dpi: 300,
-        scale: 2,
+        scale: 2
       })
-      .then((canvas) => {
+      .then(canvas => {
         // 返回图片dataURL，参数：图片格式和清晰度(0-1)
         const pageData = canvas.toDataURL("image/jpeg", 1.0);
         // 方向默认竖直，尺寸ponits，格式a4[595.28,841.89]
