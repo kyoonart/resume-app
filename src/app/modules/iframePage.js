@@ -73,7 +73,7 @@ function registerIframePageLoad() {
               $textarea.style.boxShadow = "";
             }, 200);
             // 触发editor onEvent事件-用于捕获path
-            // editor.activeResult.node.dom.value.click();
+            editor.activeResult.node.dom.value.click();
             return;
           }
         }
