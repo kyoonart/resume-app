@@ -10,7 +10,6 @@ const dataStack = jsonDataStack;
  */
 export default function initNav(defaultPage = getActivePageKey() || "pt") {
   const $nav = document.querySelector("header nav");
-
   // 优先根据别名顺序生成
   const titleKeys = Object.keys(navTitle)
     .concat($nav.innerText.split(","))
@@ -21,7 +20,7 @@ export default function initNav(defaultPage = getActivePageKey() || "pt") {
       return pre;
     }, []);
   // 获取所有模板的链接
-  const links = titleKeys.map((titleKey) => {
+  const links = titleKeys.map(titleKey => {
     const link = createLink(
       navTitle[titleKey] || titleKey,
       `./pages/${titleKey}`
@@ -36,7 +35,11 @@ export default function initNav(defaultPage = getActivePageKey() || "pt") {
     createLink("Github", "https://github.com/pengtaoa/resume-app", true)
   );
   links.push(
-    createLink("贡献模板", "https://github.com/pengtaoa/resume-app/blob/master/contribution.md", true)
+    createLink(
+      "贡献模板",
+      "https://github.com/pengtaoa/resume-app/blob/master/contribution.md",
+      true
+    )
   );
   links.push(
     createLink("建议/反馈", "https://www.wenjuan.com/s/UZBZJvF7rt/", true)
@@ -44,14 +47,14 @@ export default function initNav(defaultPage = getActivePageKey() || "pt") {
 
   // 渲染到页面中
   const t = document.createDocumentFragment();
-  links.forEach((link) => {
+  links.forEach(link => {
     t.appendChild(link);
   });
   $nav.innerHTML = "";
   $nav.append(t);
 
   // 默认页面
-  const _link = links.find((link) => link?.href?.endsWith(defaultPage));
+  const _link = links.find(link => link?.href?.endsWith(defaultPage));
   changeIframePage(_link.href);
   activeLink(_link);
 
@@ -69,7 +72,7 @@ export default function initNav(defaultPage = getActivePageKey() || "pt") {
   });
 
   // 切换Page
-  $nav.addEventListener("click", (e) => {
+  $nav.addEventListener("click", e => {
     // TODO：待优化窄屏幕逻辑
     if (e.target.tagName.toLowerCase() === "a") {
       if ($nav.style.display) {
@@ -103,7 +106,7 @@ export default function initNav(defaultPage = getActivePageKey() || "pt") {
   // 适配屏幕
   window.addEventListener(
     "resize",
-    debounce((e) => {
+    debounce(e => {
       // TODO:导航栏 后续优化
       const width = e.currentTarget.innerWidth;
       if (width > 900) {
@@ -112,7 +115,7 @@ export default function initNav(defaultPage = getActivePageKey() || "pt") {
       scalePage(width);
     }, 500)
   );
-  window.addEventListener("load", (e) => {
+  window.addEventListener("load", e => {
     scalePage(e.currentTarget.innerWidth);
   });
 }
@@ -130,7 +133,7 @@ function changeIframePage(src) {
 }
 
 function activeLink(link) {
-  Array.from(link.parentElement.children).forEach((el) => {
+  Array.from(link.parentElement.children).forEach(el => {
     el.classList.remove("active");
   });
   link.classList.remove("active");

@@ -2,29 +2,28 @@ import {
   getPageKey,
   getSchema,
   highLightDom,
-  traverseDomTreeMatchStr,
+  traverseDomTreeMatchStr
 } from "../../utils";
 import {
   getSessionStorage,
   scrollIntoView,
   setSessionStorage,
-  toggleControlPanel,
+  toggleControlPanel
 } from "./public";
 import editor from "./schemaEditor";
 import clickObjEditor from "./clickObjEditor";
 import { getTextArea } from "./textArea";
 import { toast } from "../../components/Toast";
 function registerIframePageLoad() {
-  document.getElementById("page").onload = (e) => {
+  document.getElementById("page").onload = e => {
     // show control panel
     toggleControlPanel(false);
     // 初始化json编辑器内容
     editor.set(getSchema(getPageKey()));
     // 初始化
     clickObjEditor.set({});
-
     // 获取点击到的内容
-    e.path[0].contentDocument.body.addEventListener("click", (e) => {
+    e.path[0].contentDocument.body.addEventListener("click", e => {
       const $target = e.target;
       const clickText = $target.textContent.trim();
       const matchDoms = traverseDomTreeMatchStr(
@@ -34,7 +33,7 @@ function registerIframePageLoad() {
       if ($target.classList[0] === "avatar-none") {
         toast.warn("请更换完整url链接才可以哦!!");
       }
-      const mathIndex = matchDoms.findIndex((v) => v === $target);
+      const mathIndex = matchDoms.findIndex(v => v === $target);
       if ($target.tagName.toLowerCase() === "a" && !$target.dataset.open) {
         e.preventDefault();
       }
@@ -49,7 +48,7 @@ function registerIframePageLoad() {
       const $textarea = getTextArea();
       highLightDom(getSessionStorage("clickDom"), 0);
       // 高亮这次的10s
-      highLightDom($target, 10000, "#56B4D3");
+      highLightDom($target, 10000);
       // 更新editor中的search内容
       editor.search(clickText);
 
@@ -74,7 +73,7 @@ function registerIframePageLoad() {
               $textarea.style.boxShadow = "";
             }, 200);
             // 触发editor onEvent事件-用于捕获path
-            editor.activeResult.node.dom.value.click();
+            // editor.activeResult.node.dom.value.click();
             return;
           }
         }

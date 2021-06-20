@@ -57,7 +57,7 @@ export function scrollIntoView(dom) {
   dom?.scrollIntoView({
     behavior: "smooth",
     block: "center",
-    inline: "center",
+    inline: "center"
   });
 }
 
@@ -108,7 +108,7 @@ export function initObserver() {
     return;
   }
   const observer = new MutationObserver(
-    debounce((mutationsList) => {
+    debounce(mutationsList => {
       for (const e of mutationsList) {
         let { target } = e;
         if (e.type === "characterData") {
