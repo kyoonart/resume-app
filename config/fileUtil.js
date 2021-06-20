@@ -9,10 +9,10 @@ const htmlWebpackPlugin = require("html-webpack-plugin");
  * @param {String} dir 目录名
  * @returns {Array<String>} directorys 文件相对路径数组
  */
-let getDirFiles = (dir) => {
+let getDirFiles = dir => {
   let result = [];
   let files = fs.readdirSync(dir, { withFileTypes: true });
-  files.forEach((file) => {
+  files.forEach(file => {
     if (file.isFile()) {
       result.push(path.join(dir, file.name));
     } else {
@@ -28,15 +28,15 @@ let getDirFiles = (dir) => {
  * @param {String} type 文件类型(后缀) js/.js
  */
 let getDirFileByType = (dir, type) => {
-  return getDirFiles(dir).filter((file) => path.extname(file).endsWith(type));
+  return getDirFiles(dir).filter(file => path.extname(file).endsWith(type));
 };
 
 /**
  * 获取指定目录中的所有文件的绝对路径
  * @param {String} dir 目录名
  */
-let getDirFilesWithFullPath = (dir) => {
-  return getDirFiles(dir).map((file) => path.resolve(file));
+let getDirFilesWithFullPath = dir => {
+  return getDirFiles(dir).map(file => path.resolve(file));
 };
 
 function getEntry(url, suffix = ".js") {
@@ -59,7 +59,7 @@ function getHtml(filename, chunks, template, title = "", options = {}) {
       removeRedundantAttributes: minify,
       removeScriptTypeAttributes: minify,
       removeStyleLinkTypeAttributes: minify,
-      useShortDoctype: minify,
+      useShortDoctype: minify
     },
     chunks, //引入对应的js
     template,
@@ -71,17 +71,17 @@ function getHtml(filename, chunks, template, title = "", options = {}) {
         "width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=no",
       description: "在线简历自动生成",
       keywords: "校招简历，简历模板，简历生成，在线简历模板，在线简历生成",
-      render: "webkit",
+      render: "webkit"
     },
     hash: true, // 清除缓存
-    ...options,
+    ...options
   });
 }
 
 function getPagesConfig(baseDir = "src/pages") {
   const dirs = fs.readdirSync(baseDir, { withFileTypes: true });
   const pageEntry = {};
-  dirs.forEach((dir) => {
+  dirs.forEach(dir => {
     if (dir.isDirectory()) {
       const { name } = dir;
       const jsFilesPath = getDirFileByType(path.resolve(baseDir, name), "js");
@@ -105,11 +105,11 @@ function getEntryAndPage(baseDir = "src/pages") {
   const entry = pageName.reduce((pre, name) => {
     pre = {
       ...pre,
-      ...pageConfig[name],
+      ...pageConfig[name]
     };
     return pre;
   }, {});
-  const pages = pageName.map((name) => {
+  const pages = pageName.map(name => {
     const pageDir = `${name}/index.html`;
     const page = getHtml(
       `pages/${pageDir}`,
@@ -121,7 +121,7 @@ function getEntryAndPage(baseDir = "src/pages") {
   });
   return {
     entry,
-    pages,
+    pages
   };
 }
 
@@ -132,9 +132,9 @@ function writeSchemaJS() {
   const files = getDirFilesWithFullPath("src/constants/schema");
   const { dir } = path.parse(files[0]);
   const targetFilePath = path.resolve(dir, "../", "schema.js");
-  const names = files.map((file) => path.parse(file).name);
+  const names = files.map(file => path.parse(file).name);
   const res = `${names
-    .map((n) => {
+    .map(n => {
       return `import ${n} from './schema/${n}'`;
     })
     .join("\n")}
@@ -151,5 +151,5 @@ module.exports = {
   getEntry,
   getHtml,
   getEntryAndPage,
-  writeSchemaJS,
+  writeSchemaJS
 };
