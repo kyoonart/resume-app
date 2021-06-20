@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack serve  --config=config/webpack.config.js",
     "build": "cross-env NODE_ENV=production webpack --config=config/webpack.config.js",
-    "lint": "eslint src --fix"
+    "lint": "eslint src --fix",
+    "prepare": "husky install",
+    "commit": "git-cz"
   },
   "repository": {
     "type": "git",
