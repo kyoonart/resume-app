@@ -19,7 +19,7 @@ export default {
           {
             type: "a",
             href: "https://juejin.cn/user/1028798615918983",
-            text: "粥里有勺糖",
+            text: "upain",
           },
         ],
       ],

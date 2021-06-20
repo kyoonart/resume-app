@@ -36,7 +36,7 @@ export default function initNav(defaultPage = getActivePageKey() || "pt") {
     createLink("Github", "https://github.com/pengtaoa/resume-app", true)
   );
   links.push(
-    createLink("贡献模板", "https://github.com/pengtaoa/resume-app", true)
+    createLink("贡献模板", "https://github.com/pengtaoa/resume-app/blob/master/contribution.md", true)
   );
   links.push(
     createLink("建议/反馈", "https://www.wenjuan.com/s/UZBZJvF7rt/", true)

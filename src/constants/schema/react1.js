@@ -120,13 +120,13 @@ export default {
       title: "个人站点",
       values: [
         {
-          des: ["掘金", "粥里有勺糖"],
+          des: ["掘金", "upain"],
         },
         {
-          des: ["CSDN", "粥里有勺糖"],
+          des: ["CSDN", "upain"],
         },
         {
-          des: ["博客园", "粥里有勺糖"],
+          des: ["博客园", "upain"],
         },
       ],
     },
