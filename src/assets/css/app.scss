@@ -19,7 +19,7 @@
     }
   }
   #jsonEditor {
-    width: calc(100vw - 900px);
+    width: 40vw;
     margin: 0 auto;
     position: sticky;
     top: 9rem;
@@ -147,9 +147,8 @@ header {
     z-index: 1;
   }
 }
-
 #domContext {
-  width: 100%;
+  width: 40vw;
   margin: 0 auto;
   margin-top: 0.5rem;
   padding: 1rem;
@@ -164,7 +163,9 @@ header {
     justify-content: space-between;
   }
 }
-
+#clickEditor{
+  width:40vw;
+}
 div.tools button {
   border: none;
   outline: none;
