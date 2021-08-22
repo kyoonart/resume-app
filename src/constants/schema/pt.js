@@ -17,7 +17,7 @@ export default {
       title: "Github",
     },
   ],
-  avatarUrl: "http://topurl.cn/6qk",
+  avatarUrl: "https://z3.ax1x.com/2021/08/22/hpQOM9.jpg",
   skills: [
     {
       key: 0,
